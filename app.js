@@ -9,7 +9,7 @@ const notificationElement = document.querySelector(".notification");
 // App Data - object
 const weather = {};
 weather.temperature = {
-    unit : "celsius";
+    unit: "celsius",
 }
 
 //Const for tempt
@@ -28,7 +28,7 @@ if('geolocation' in navigator){
 
 //this sets the uswers position
 function setPosition(position){
-    let latitude = position.coords.lattitude;
+    let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
     getWeather(latitude, longitude);
@@ -66,7 +66,7 @@ function displayWeather(){
     iconElement.innerHTML = `<img src="icons/${weather.iconIds}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
-    loctaionElement.innerHTML = `${weather.city}, ${weather.country}`;
+    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
 
@@ -75,7 +75,7 @@ function celsiusToFarenheit(temperature){
 }
 
 
-tempElement.addEventListenner("click", function(){
+tempElement.addEventListener("click", function(){
     if(weather.temperature.value === undefined) return;
 
     if(weather.temperature.unit == "celsius"){
